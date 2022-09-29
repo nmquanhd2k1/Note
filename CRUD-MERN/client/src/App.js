@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import Axios from 'axios'
 import './App.css';
 
 function App() {
@@ -10,35 +11,40 @@ function App() {
   const [city, setCity] = useState('')
 
   const addToList = () => {
-    console.log(personName + email + mobile + city );
+    Axios.post("http://localhost:3003/insert", {
+      personName: personName,
+      email: email,
+      mobile: mobile,
+      city: city
+    });
   }
   return (
     <div className="App">
       <h1> CRUD App with MERN</h1>
 
-      <label>Name    </label>
+      <label>Name</label>
       <input type="text"
-              onChange={(event) => {
-                setPersonName(event.target.value);
-              }}/>
+        onChange={(event) => {
+          setPersonName(event.target.value);
+        }} />
 
-      <label>Email    </label>
+      <label>Email</label>
       <input type="text"
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}/>
+        onChange={(event) => {
+          setEmail(event.target.value);
+        }} />
 
-      <label>Mobile    </label>
+      <label>Mobile</label>
       <input type="text"
-              onChange={(event) => {
-                setMobile(event.target.value);
-              }}/>
+        onChange={(event) => {
+          setMobile(event.target.value);
+        }} />
 
-      <label>City    </label>
+      <label>City</label>
       <input type="text"
-              onChange={(event) => {
-                setCity(event.target.value);
-              }}/>
+        onChange={(event) => {
+          setCity(event.target.value);
+        }} />
 
       <button onClick={addToList}>Add to List</button>
 

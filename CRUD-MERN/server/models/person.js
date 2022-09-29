@@ -2,16 +2,20 @@ const mongoose = require("mongoose");
 
 const personSchema = new mongoose.Schema({
     personName: {
-        type: String
+        type: String,
+        required: true,
     },
     email: {
-        type: String
+        type: String,
+        required: true,
     },
     mobile: {
-        type: String
+        type: String,
+        required: true,
     },
     city: {
-        type: String
+        type: String,
+        required: true,
     },
 });
 
